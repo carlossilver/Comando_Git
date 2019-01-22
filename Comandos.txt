@@ -1,0 +1,1 @@
+Git --version para saber que version es la que se esta usando.
