@@ -1,0 +1,483 @@
+  echo $JAVA_HOME
+  sudo vi /etc/bash.bashrc  # archivo para configuracion de entornos de variables
+  echo $MAVEN_HOME          # comando para revisar en donde esta la variable
+  sudo apt-get install 
+  reboot                    # reiniciar la maquina desde la terminal
+  sudo apt-get update       # comando para actualizar paquetes
+  sudo apt-get install scala # instalar escala
+  mkdir hadoopinfra # Crear este directorio para la configuracion de hadoop
+  cd hadoopinfra/
+  rm -r hadoopinfra/
+  sudo mkdir hadoopinfra
+  sudo mkdir hdfs
+  sudo mkdir datanode
+  sudo mkdir namenode
+  sudo chmod 777 datanode
+  sudo chmod 777 namenode
+  hadoop namenode -format  # Dar formato al HDFS
+  cd etc/hadoop/
+  vi core-site.xml  # Editar para configurar el HDFS
+  vi hdfs-site.xml  # Editar para configurar el HDFS
+  vi yarn-site.xml  # Editar para configurar el HDFS
+  mv mapred-site.xml.template mapred-site.xml # Copiar el archivo y renombrarlo para poder editarlo
+  vi mapred-site.xml # Editar este archivo para poder configurar el HDFS
+  vi hadoop-env.sh  # Editar este archivo para la variable de java en el HDFS
+  cd sbin/  #Entrar a esta carpeta para ejecutar los shells
+  ./start-dfs.sh    # Levantar Hadoop 
+  sudo apt-get install ssh # Instalar ssh para poder ejecutar Hadoop
+  sudo apt autoremove  # Depurar paquetes que no fueron instalados correctamente
+  hdfs dfs -ls / # Ver los directorio que hay en el HDFS
+  hdfs dfs -put test.txt /test # Subir un archivo de tu maquina local a un directorio en el HDFS
+  #################################################33
+  Exisiten 2 comandos diferentes para subir y bajar ficheros del HDFS
+  El comando hdfs dfs put y hdfs dfs -copyFromLocal 
+  El comando hdfs dfs get y copyToLocal, la diferencia radica en que get trae el fichero sin importar que se pierda informacion durante el trayecto, a diferencia de copyToLocal verifica que el archivo llegue completo, si no es asi no se descarga.
+  hdfs dfs -ls -R /  # Para ver todo los directorios y ficheros que existen en el HDFS
+  ps aux | grep datamode # Para saber si el hadoop esta corriendo
+  hdfs dfs -cat /test/test.txt | head -n 2
+  hdfs dfs -cat /test/test.txt | wc -l
+  hdfs dfs -cp /test/test.txt /test/test02.txt
+  hdfs dfs -ls /test
+  tar -xzf hadoop-2.7.7-src.tar.gz # Desempaquetar archivos
+  hdfs dfs -put test.txt /user/hadoop
+  hdfs dfs -ls /
+  hdfs dfs -mkdir usuario
+  hdfs dfs -mkdir /usuario
+  hdfs dfsadmin -report # De esta forma se puede saber si el datanode esta levantado
+  stop-dfs.sh # Shell para detener hadoop
+  sudo vi /etc/sudoers # Archivo que se configura para darle permisos a cualquiero usuario sin ser root
+  hadoop namenode -format # De esta forma se da formato al HDFS
+  start-dfs.sh # Shell que levanta el servicio de Hadoop
+  rm -rf  /home/cgsilverio/Hadoop/hadoopinfra/hdfs/* # Este es un ejemplo de como se borran los directorios "hijos" de un directorio "padre"
+  mkdir  /home/cgsilverio/Hadoop/hadoopinfra/hdfs/{datanode,namenode} # Este es un ejemplo de como crear dos directorios "hijos" en una instruccion
+  stop-dfs.sh # Shell para detener Hadoop 
+  sudo vi /etc/sudoers # Archivo para dar permisos de root a usuarios
+  sudo vi /etc/hosts # Archivo para camboiar el la ip local de la maquina
+  sudo vi /etc/hostname #  Archivo para cambiar el nombre de la maquina
+  sudo vi /etc/sudoers
+  source /etc/profile # Actualizar las variables de entorno
+  hdfs dfs -mkdir -p /user/cgsilverio # Ejemplo de como crear varios directorio en una instruccion
+
+
+############################################INSTALACION DE SPARK#######################################################
+  1 Descargar el Tar de spark desde su pagina oficial
+  2 Desempaquetar y mover a un directorio diferente
+  tar -xvzf spark-2.2.0-bin-hadoop2.7.tgz 
+  3 Configurar las variables de entorno
+  4 Actualizar la varibles de entorno
+
+  ./sbin/start-master.sh                        # Shell para iniciar spark 
+  ./sbin/start-slave.sh spark://cgsilverio:7077 # Shell para levantar un esclavo 
+  ./bin/spark-shell                             # Iniciar spark
+  ./bin/spark-shell --master spark://cgsilverio:7077 # Asignar el master al esclavo
+  ./sbin/start-slave.sh spark://cgsilverio:7077  #Asignar el esclavo al master
+  ./sbin/start-master.sh # Iniciar el master
+
+######################################################################################
+sudo systemctl status docker #saber si docker esta corriendo
+git --version                # saber que version de docker esta instalado
+sudo apt-get git # Descargar GitHub
+sudo apt-get install git # Instalar GitHub
+tar -xzf hadoop-2.7.7-src.tar.gz 
+./start-dfs.sh
+hdfs dfsadmin -report
+
+sudo vi /etc/hostname 
+sudo vi /etc/sudoers
+sudo vi /etc/hostname 
+source /etc/profile
+ll
+cd ..
+ll
+vi etc/hadoop/core-site.xml 
+sudo vi /etc/hosts
+stop-dfs.sh 
+hadoop namenode -format 
+start-dfs.sh 
+hdfs dfs -ls /
+hdfs dfsadmin -report
+hdfs dfs -mkdir /user/cgsilverio
+hdfs dfs -mkdir -p /user/cgsilverio
+ll
+hdfs dfs -put README.txt /user/cgsilverio/
+hdfs dfs -ls /user/cgsilverio/
+hostname
+sudo vi /etc/hosts
+sudo vi /etc/hostname 
+hostname
+reboot
+cd Hadoop/
+cd hadoop-2.7.7/
+ll
+cd bin/
+ll
+cd ..
+ll
+cd sbin/
+hdsf dfs -put README.txt /user/cgsilverio
+hdsf dfs -ls /
+hdfs dfs -ls /
+hdsf dfs -put README.txt /user/cgsilverio
+hdfs dfs -put README.txt /user/cgsilverio
+ll
+ls
+cd ..
+ll
+hdfs dfs -put README.txt /user/cgsilverio
+hdfs dfs -ls /user/cgsilverio
+clear
+cd
+cd tmp/
+ll
+mkdir temp
+cd temp/
+mkdir -p /padre{hijo1,hijo2}
+mkdir padre
+cd padre/
+mkdir hijo1
+mkdir hijo2
+ll
+cd ..+
+cd ..
+touch padre/hijo1/carlos.txt
+tree
+touch #comando para crear un directorio
+man tar
+vi salario.txt
+vi salario.txt 
+cat salario.txt | awk | $2
+cat salario.txt | awk '{ print $2 }'
+cat salario.txt | awk '{ print $1 }'
+awk '{ print $1 }' salario.txt 
+awk '{ print $2 }' salario.txt 
+awk '{ print $3 }' salario.txt 
+awk -F |'{ print $2 }' salario.txt 
+awk -F | '{ print $2 }' salario.txt 
+awk -F| '{ print $2 }' salario.txt 
+awk -f| '{ print $2 }' salario.txt 
+pwd
+awk -f| '{ print $2 }' /home/cgsilverio/temp/salario.txt 
+awk -f| '{ print $1 }' /home/cgsilverio/temp/salario.txt 
+gawk -F| '{ print $1 }' /home/cgsilverio/temp/salario.txt 
+awk '{ print $1 }' /home/cgsilverio/temp/salario.txt 
+awk '{ print $2 }' /home/cgsilverio/temp/salario.txt 
+awk -F '|'{ print $2 }' /home/cgsilverio/temp/salario.txt 
+awk -F '|' { print $2 }' salario.txt 
+awk -F '|' '{ print $2 }' salario.txt 
+vi transformacion.awk
+man awk
+vi transformacion.awk
+cat salario.txt | awk -f transformacion.awk 
+cat salario.txt 
+vi transformacion.awk
+cat salario.txt | awk -f transformacion.awk 
+vi transformacion.awk
+cat salario.txt 
+vi transformacion.awk
+cat salario.txt | awk -f transformacion.awk 
+vi transformacion.awk
+cat salario.txt | awk -f transformacion.awk 
+vi transformacion.awk
+cat salario.txt | awk -f transformacion.awk 
+vi transformacion.awk
+cat salario.txt | awk -f transformacion.awk 
+vi transformacion.awk
+cat salario.txt | awk -f transformacion.awk 
+vi transformacion.awk
+cp transformacion.awk suma.awk
+vi suma.awk 
+vi numeros.txt
+vi suma.awk 
+cat numeros.txt | awk -f suma.awk 
+vi suma.awk 
+cat numeros.txt | awk -f suma.awk 
+vi suma.awk 
+cat numeros.txt | awk -f suma.awk 
+vi suma.awk 
+cat numeros.txt | awk -f suma.awk 
+vi suma.awk 
+cat numeros.txt | awk -f suma.awk 
+vi suma.awk 
+cat numeros.txt | awk -f suma.awk 
+vi suma.awk 
+cat numeros.txt | awk -f suma.awk 
+vi suma.awk 
+cd 
+pwd
+vi /etc/sudoers
+sudo vi /etc/sudoers
+pwd
+ll
+cd /tmp/
+ll
+cd ..
+ls
+pwd
+cd /home/
+ll
+cd cgsilverio/
+ll
+ls
+cd temp/
+ll
+vi suma.awk
+cd
+ll
+pwd
+clear
+ps fxj
+clear
+ls
+mkdir Git
+cd Git/
+git clone https:/github.com/DatioBD/
+git config --global user.name "csilverio"
+git config --global user.email csilveri0.038@gmail.com
+git clone https:/github.com/DatioBD/academy.git
+git clone https://github.com/DatioBD/academy.git
+ll
+cd academy/
+ll
+cd courses/
+ll
+pwd
+cd scala/
+ll
+cd ..
+ll
+cd sparkSQL/
+ll
+vi Ejercicios.ipynb 
+cd ../scala/;ll
+cd notebooks
+ll
+vi 01-introduction.ipynb 
+sudo systemctl status docker
+docker
+docker -v
+docker container list
+sudo usermod -aG docker $(whoami)
+clear
+cd Hadoop/hadoop-2.7.7/
+cd sbin/
+ll
+start-dfs.sh
+hdfs dfsadmin -report
+cd ..
+ll
+tree
+ll
+cd hadoop-2.7.7/
+ll
+cd sbin/
+ll
+stop-dfs.sh
+hadoop namenode -format
+start-dfs.sh
+hdfs dfsadmin -report
+cd 
+ll
+pwd
+clear
+ll
+ls
+cd Spark/
+ll
+pwd
+sudo vi /etc/bash.bashrc
+echo $SPARK_HOME
+sudo vi /etc/bash.bashrc
+echo $SPARK_HOME
+:q
+sudo vi /etc/bash.bashrc
+cd spark-2.2.0-bin-hadoop2.7/
+ll
+sudo vi /etc/bash.bashrc
+echo $SPARK_HOME
+sudo vi /etc/bash.bashrc
+cd ..
+ll
+rm -r spark-2.2.0-bin-hadoop2.7/
+tar -xvzf spark-2.2.0-bin-hadoop2.7.tgz 
+ll
+pwd
+cd spark-2.2.0-bin-hadoop2.7/
+ll
+clear
+pwd
+ll
+pwd
+sudo vi /etc/bash.bashrc
+echo $SPARK_HOME
+sudo vi /etc/bash.bashrc
+cd ..
+ll
+mv spark-2.2.0-bin-hadoop2.7.tgz ..
+ll
+sudo vi /etc/bash.bashrc
+cd spark-2.2.0-bin-hadoop2.7/
+ll
+cd bin/
+ll
+sudo vi /etc/bash.bashrc
+source /etc/profile
+echo $SPARK_HOME
+pwd
+ll
+cd ..
+ll
+cd bin/
+ll
+cd ..
+./sbin/start-master.sh 
+./sbin/start-slave.sh spark://cgsilverio:7077
+./bin/spark-shell 
+./bin/spark-shell --master spark://cgsilverio:7077
+./sbin/start-slave.sh spark://cgsilverio:7077
+./sbin/start-master.sh 
+history
+ll
+history
+ll
+pwd
+pwcd bin/
+cd bin/
+ll
+cd ../sbin/
+ll
+hostname
+sudo vi /etc/sudoers
+hdfs dfs -report
+hdfs dfsadmin -report
+ll
+cd Hadoop/
+ll
+cd hadoopinfra/
+ll
+cd hdfs/
+ll
+rm -r datanode
+rm -r namenode
+ll
+mkdir datanode
+mkdir namenode
+ll
+cd ..
+ll
+cd ..
+ll
+cd hadoop_hdfs/
+ll
+vi Test.txt
+hdfs dfs -ls /
+hdfs dfs -mkdir -p /user/cgsilverio
+hdfs dfs -put Test.txt /user/cgsilverio
+hdfs dfs -ls /user/cgsilverio
+hdfs dfs 
+sudo apt-get update
+ll
+history
+hdfs dfsadmin -report
+hdfs dfs -ls /
+hdfs dfs -ls -R
+hdfs dfs -mkdir -p /Padre/{hijo1,hijo2}
+hdfs dfs -ls -R
+ hdfs dfs -ls -R /
+ hdfs dfs -mkdir -p /Padre_/Hijo/Nieto/Bisnieto
+ hdfs dfs -ls -R /
+ sudo systemctl status docker
+ reboot
+ clear
+ reboot
+ ll
+ ls
+ cd Git/
+ mkdir Git_test
+ cd Git_test/
+ ll
+ systemctl status docker
+ cd Git/
+ pwd
+ ll
+ cd academy/
+ ll
+ cd courses/
+ ll
+ pwd
+ docker run -d -p 8888:8888 -v /home/cgsilverio/Git/academy/courses:/home/jovyan/work jupyter/all-spark-notebook start-notebook.sh --NotebookApp.token=''
+systemctl status docker
+clear
+systemctl status docker
+history
+docker container list
+howami
+man
+help
+docker container list
+docker
+docker container list
+whoami
+docker ps
+ps fxj
+ps fxj | docker
+ip a
+ifconfig
+docker ps -a
+cd Git/
+cd Git_test/
+git clone https://github.com/carlossilver/Formacionindra.git
+ll
+cd Formacionindra/
+ll
+cd .git/
+ll
+clear
+ll
+cd ..
+pwd
+clear
+ll
+vi README.md 
+git status
+git add README.md 
+git status
+git commit -m "Se Agrego informacion de la formacion"
+git status
+git remote -v
+git config --list
+git push origin master
+git config --list
+git push origin master
+ssh keygen
+ssh-keygen
+ls /home/cgsilverio/.ssh/
+cat /home/cgsilverio/.ssh/id_rsa.pub 
+ll
+vi README.md 
+git status
+git add README.md 
+git status
+git commit -m "Se Agrego configuracion para ssh"
+git status
+git remote -v
+git config --list
+git push origin master
+cd ..
+ll
+cd ..
+ll
+mkdir Git_ssh
+cd Git_ssh/
+ll
+git clone git@github.com:carlossilver/Formacionindra.git
+ll
+}cd Formacionindra/
+cd Formacionindra/
+ll
+vi README.md 
+git status
+git add README.md 
+git status
+git commit -m "Esta es una prueba para saber si funciona la llave ssh"
+git push origin master
+history
