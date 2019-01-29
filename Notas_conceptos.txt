@@ -1,0 +1,165 @@
+###aqui agrego una modificacion by baiko
+notas -- datio
+que es jenky
+#API 
+son valiosas, ante todo, porque permiten hacer uso de funciones ya existentes en otro software (o de la infraestructura ya existente en otras plataformas) para no estar reinventando la rueda constantemente, reutilizando así código que se sabe que está probado y que funciona correctamente. En el caso de herramientas propietarias (es decir, que no sean de código abierto), son un modo de hacer saber a los programadores de otras aplicaciones cómo incorporar una funcionalidad concreta sin por ello tener que proporcionar información acerca de cómo se realiza internamente el proceso.
+
+#procesos analiticos
+Darle un significado a los datos, ya sea reglas de negocio o modelos estadisticos.
+
+#Gobierno de datos
+
+
+#open stat
+es un programa para anlisis estadistico
+
+#apache mesos
+Es un manejador de recursos a nivel fisicos del cluster y manejador de spark
+
+#los Servicios se autentican mediante un protocolo llamado kerberos mediante llaves privadas
+
+#Kibana
+Te permite generar Dashboar de monitoreo y ademas trabaja con datos de tipo de json recolectados y los llebas a kibana los procesas y te dicen que servicios estan fallando o si algun servicio esta corriendo correctamente
+
+Kibana es una herramienta open-source perteneciente a Elastic, que nos permite visualizar y explorar datos que se encuentran indexados en ElasticSearch, es decir, un plugin de ElasticSearch. Kibana también es conocido por el stack ELK
+
+#HAProxy 
+Es un balanceador de carga para dar alta disponibilidad 
+
+#zookeper 
+es un servicio de coordinación de código abierto distribuido para aplicaciones distribuidas. Expone un conjunto simple de primitivas sobre las que pueden basarse las aplicaciones distribuidas para implementar servicios de nivel superior para la sincronización, el mantenimiento de la configuración y los grupos y nombres. Está diseñado para ser fácil de programar y utiliza un modelo de datos con el estilo de la estructura de árbol de directorios familiar de los sistemas de archivos. Se ejecuta en Java y tiene enlaces para Java y C.
+
+##DC / OS 
+Es un sistema operativo distribuido basado en el kernel de sistemas distribuidos de Apache Mesos. Permite la gestión de múltiples máquinas como si fueran una sola computadora. Automatiza la administración de recursos, programa la colocación de procesos, facilita la comunicación entre procesos y simplifica la instalación y administración de servicios distribuidos. Su interfaz web incluida y la interfaz de línea de comandos (CLI) disponibles facilitan la administración remota y el monitoreo del clúster y sus servicios.
+
+###Docker, me permite meter en un contenedor (“una caja”, algo auto contenido, cerrado) todas aquellas cosas que mi aplicación necesita para ser ejecutada (java, Maven, tomcat…) y la propia aplicación. Así yo me puedo llevar ese contenedor a cualquier máquina que tenga instalado Docker y ejecutar la aplicación sin tener que hacer nada más, ni preocuparme de qué versiones de software tiene instalada esa máquina, de si tiene los elementos necesarios para que funcione mi aplicación , de si son compatibles.
+
+dar formato
+hadoop namenode -format
+
+permisos 755
+##########################ARQUITECTURA###################################
+Que es DATIO
+> Es el provedor de servicios para el banco 
+La razon principal el la digitalizacion de el banco
+Para darle un sentido a los datos 
+
+Datio usa la tecnologia de stratio para darle servicios especificos y seguros al banco.
+##########PLATAFORMA ETHER###########3
+Es un conjunto de servicios que el banco se proviciona a si mismo a travez de las cuales hay diferentes diciplinas y estas asu vez interactuan entre si para que datio pueda consumirla y proveer los datos explotado y puedan ser utilizas por otras areas el servicio de datio es DASh
+El banco esta proponiendo un modelo de trabajo y un modelo de negocio en el cual tiene una nube privada, se provee a si mismos ya sea de infraestrucutra,seguridad o procesamiento y los ofrece a los dev y a los ejecutivos del banco.
+#########################SERVICIOS NUCLEARES########################
+Diciplinas del banco
+IaaS   -Arquitectura como servicio
+SEMaaS -Es streaming como servicio, es decir recibe informacion al momento, los en cola y los transforma
+PaaS   -
+Daas   - Datos comos servicio, es decir ofrecer el consumo de cualquiere dato sin tener que solicitarlo a alguien mas
+SECaaS - seguridad como servicio es decir certificados,segurida interna nivel logico, listas de acceso y reglas de negocio y seguridad perimetral a nivel fisico
+Que es una plataforma como servicio
+
+
+Que es una API
+
+OPENSTAT es un ipervisor, es un modo de un kernel que te permite virtualizar maquinas, decir que tengas x cantidad de servidores corriendo dentro de un servidor fisico, te permite acceder de manera firmada al hardware es decor que te permita dar instrucciones de cpu directamente te permite proveer servicios de memoria y cpu hacia maquinas virtuales.(algo asi como una maquina virtual)
+
+IaaS prove servidores vortuales,
+SEMaas nace para monitorizar todos los servicios de las diciplinas que estan arriba de ellas
+Daas Es la unica diciplina autorizada y con facultad para alterr los datos y explotarlos.
+
+
+###############################################################################
+
+###################PREGUNTAS PROBABLES DEL EXAMEN#####################333
+-Que es Volt administra secretos, es como una caja que se consume via REST
+-Que es ilubatar
+-Que es ELDAT es un metodo de autenticacion de linux, bitacora de usuario linux,diccionary acces protocol
+-Que es un metronomo, es un scheluder de tareas que utiliza mesos
+-Que es Quibana es generador de reportes dashboard
+-Que es Zookeper
+-Para que sirve el core-sites.xml, es el punto de acceso del namenode donde esta definido core-sites
+-Que es el hdfs-site Es el encargado de la configuracion del sistema de archivos del hdfs 
+-Como puedo ver desde consola si un nodo esta activo >hdfs dsfadmin -report
+-Como copiar un archivo de un servidos a otro > scp archivo usuario@ip :
+-Como buscar en un archivo un nombre en especifico y lo redireccionaba a un archivo cat archivo | grep palabra >> nuevoarchivo
+-como obtengo el nombre de la maquina > hostname
+-Como cambio el nombre de mi maquina apt get install paquete
+-Como instalo un paquete en linux 
+-Como busco  > apt-search paquete
+#######################kirby#########################
+-Menciona 3 propiedades de la parte input del archivo conf
+>ruta del esquema
+>ruta de la tabla
+>
+-Cual es el numero de particiones por default que setea el archivo de configuraciones > por default lo define en cero se le tiene que cambiar en una tabla
+-3 propiedades de  de .squema
+Tipo de dato
+Como se va a llamar el dato ahora
+origen_name
+-Que formato en el que se ecribre en hdfs en la etapa de raw
+>Abro
+-En que formato se trae los fichero el la etapa de stagin
+-Con que empaqueto una serie de directorios y archivos en un solo
+> tar -cvf directorio  la C es de create, la V es de vervose y la F es de forzar a mantener los permisos
+-Como desempaqueto un tar.gz
+> tar -xvf archivo_tar 
+-Como cambiar una direccion ip desde terminal
+-Como hacer un singleton , reutilizacion de services
+-kubernas administra los contenedores de los paquetes.
+
+################SKYNET####################
+Es una herramienta que te ayuda a hacer la ingesta pero en realidad quien hace la ingesta es kirby
+
+integrado por bitbucket,Jenkis,Artifactory
+
+skynet API hay 3 modulos en skynet
+api de kirby 
+Dataproc api --se encarga de la creaciion ejecucion borrado y monitorizacion de los jobs es decir gestion de jobs
+Artifactory --Repositorio de artefactos como por ejemplo jar son almacenados ahi, el codigo de kirby y skynet se almacena en 
+Armadillo --se utiliza para un token de acceso a la plataforma
+Git -- para el versionado de componentes
+Bitbucket --es algo similar a github
+
+Segundo modulo
+Libreria con kirby,spark jobs,Argos
+
+Tercer modulo
+CLI es una consola de comandos esclusivamente para skynet
+
+Skyneta tiene un plugin de maven
+que es un arquetipo es un templete para crear un proyecto el cual ya tiene ciertas configuraciones que asegura que trabajara bien con scala
+
+skynet BDT behavior driven testing esto ya se tiene en las versiones T-800 a T-1000
+
+Como se empieza a trabajar con skynet
+-Generar un proyecto
+mvn archetype
+-Saber que es la UUAA
+
+Para hacer un a ingesta
+primero hay que hacer un fork
+
+git fetch --ll comando git para tener sincrinizada los repositorios
+
+comandos para ingestas
+#init-schemas -t <table> -p <phases> --freq <frecuencia> -f true #esto es para configurar los achivos
+Desplegar los esquemas a bitbucket
+deply-schema -a 
+
+inicializar el resto de archivos
+run-kirby -a <uuaaa> -t <table> -p <fase> --freq <frecuencia> --dataset <num-set-of-records> --datset-null <datatypes>
+
+se hizo iniacilacion de archivos 
+
+realizar un deploy
+deploy -a <uuaa> -t <table> -p <fase> raw,master(siempre que hay diccionario) -freq <frecuencia> inc,punctual,rep
+
+jenkins escucha todas las PR -revisa que los archivos este bien conformados 
+--La uuaa nos da el derecho de acceder
+
+Argos -- es para buscar el job mas detallado
+
+Zookoper edministrador de serviocios distribuidos
+Sendbox Esuna caja para 
+
+#para ver lineas intermedias de un archivo
+hdsf dfs -cat /numeros.txt | sed -n 1,3p
