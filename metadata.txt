@@ -1,4 +1,0 @@
-#1
-Estos son los metadatos de los comandos.
-
-esto es un comentario del usu carlossilver como pruba para saber si se sincroniza
